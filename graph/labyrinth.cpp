@@ -58,7 +58,7 @@ void solve(){
 	}
 	bool check = false;
 	queue<pair<int,int>>q;
-	vector<vector<string>>ans(n+2, vector<string>(m+2));
+	vector<vector<pair<int,int>>>ans(n+2, vector<pair<int,int>>(m+2));
 	map<pair<int,int>, char>compass;
 	compass[make_pair(0,1)] = 'R';
 	compass[make_pair(0, -1)] = 'L';
@@ -72,8 +72,6 @@ void solve(){
 		int root_row = top.first, root_col = top.second;
 		if (root_row == end.first && root_col == end.second) {
 			check = true;
-			queue<pair<int,int>>empty_q;
-			swap(q, empty_q);
 			break;
 		}
 		for (pair<int,int>p : dir) {
@@ -83,16 +81,27 @@ void solve(){
 			if (visited[new_row][new_col]) continue;
 			visited[new_row][new_col] = true;
 			
-			ans[new_row][new_col] = ans[root_row][root_col];
-			ans[new_row][new_col].pb(compass[p]);
+			ans[new_row][new_col] = p;						// the step we took
 			q.push({new_row, new_col});
 		}
 	}
 	if (!check) cout << "NO" << "\n";
 	else {
 		cout << "YES" << "\n";
-		cout << ans[end.first][end.second].size() << "\n";
-		cout << ans[end.first][end.second] << "\n";
+		string res;
+		int row = end.first, col = end.second;
+		while (row != start.first || col != start.second) {
+			char c = compass[ans[row][col]];
+			res.pb(c);
+			int new_row = row - ans[row][col].first;		// go back to the "parent cell"
+			int new_col = col - ans[row][col].second;
+			row = new_row;
+			col = new_col;
+		}
+		cout << res.size() << "\n";
+		for (int i = res.size()-1; i >= 0; i--){
+			cout << res[i];
+		}
 	}
 }	
 
