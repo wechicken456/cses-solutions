@@ -60,6 +60,7 @@ void dfs(int cur, int parent) {
 	}
 }
 
+// this problem is all about finding if there's any cycle in the graph.
 void solve(){
 	cin >> n >> m;
 	for (int i = 1 , a, b; i <= m ; i++){
