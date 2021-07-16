@@ -38,7 +38,6 @@ vector<ll>dist[maxN + 1];
 
 void solve(){
 	scanf("%d %d %d", &n,  &m , &k);
-	vector<ll>ans(k);
 	
 	for (int i = 1 ,a , b , c; i <= m; i++){
 		scanf("%d %d %d", &a, &b, &c);
@@ -47,7 +46,6 @@ void solve(){
 	
 	priority_queue<pair<ll, int>>pq;
 	pq.push({0, 1});
-	int count = 0;
 
 	while (!pq.empty()) {
 		pair<ll ,int> cur = pq.top();
@@ -56,7 +54,7 @@ void solve(){
 		ll cur_dist = abs(cur.first);
 		int cur_parent = cur.second;
 		
-		if (dist[cur_parent].size() >= k) {		// if we have > k paths leading to cur_parent, we don't need anymorepath to this node.
+		if (dist[cur_parent].size() >= k) {		// if we have > k paths leading to cur_parent, we don't need anymorepath to this node as we only need k shortest paths.
 			continue;
 		}
 		
