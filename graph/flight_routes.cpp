@@ -54,7 +54,7 @@ void solve(){
 		ll cur_dist = abs(cur.first);
 		int cur_parent = cur.second;
 		
-		if (dist[cur_parent].size() >= k) {		// if we have > k paths leading to cur_parent, we don't need anymorepath to this node as we only need k shortest paths.
+		if (dist[cur_parent].size() >= k) {		// if we have > k paths leading to cur_parent, we don't need anymorepath to this node as we only need k shortest paths.	Due to priority_queue, these paths are in increasing order already.
 			continue;
 		}
 		

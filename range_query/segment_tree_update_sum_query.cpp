@@ -8,9 +8,9 @@ vector<ll>tree;
 
 int n,q;
 
-ll dum(int node, int node_low, int node_high, int query_low, int query_high){
+ll sum(int node, int node_low, int node_high, int query_low, int query_high){
 	if (node_low >= query_low && node_high <= query_high) {
-		return tree[node];
+		return tree[node];		// node represents the current range that node_low and node_high covers
 	}
 	if(node_low > query_high || node_high < query_low) {
 		return 0;
