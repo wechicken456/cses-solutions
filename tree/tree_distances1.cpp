@@ -1,3 +1,6 @@
+// MAximum distances from one node to others
+// https://cses.fi/problemset/task/1132
+
 #include<stdio.h>
 #include<vector>
 #include<iostream>
@@ -15,9 +18,9 @@ vector<int>ans;
 vector<struct maxLength> longest_path;
 
 struct maxLength {
-	int toLeaf1;
-	int toLeaf2;
-	int max_child;
+	int toLeaf1;		// maximum path length to a child 
+	int toLeaf2;		// second maximum path length to a child in another direction
+	int max_child;		// the child with maximum path length = toLeaf1
 };
 
 void make_tree(int node, int p) {

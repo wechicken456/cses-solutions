@@ -12,7 +12,6 @@
 #define ll long long
 #define ull unsigned long long
 #define pb push_back
-#define sort_all(a) sort(a.begin(), a.end())
 
 using namespace std;
 
@@ -29,23 +28,22 @@ ll my_ceil(ll a, ll b) {
 	return (a/b) + ( (a%b)!=0 );
 }
 
+const int maxN = 1e5;
+const int maxX = 1000;
+int n, m,x;
+bool visited[maxN + 1];
+vector<int>adj[maxN];
+
+struct node {
+	
+};
+
+void dfs(int cur){
+	
+}
+
 void solve(){
-	int ans = 0 ; 
-	int n , x;
-	scanf("%d%d", &n, &x);
-	vector<int>child(n);
-	for (int i = 0 ; i < n;i ++){
-		scanf("%d", &child[i]);
-	}
-	sort_all(child);
-	int j = n - 1;
-	for (int i = 0 ; i < j; i++){
-		for (; j >= i && child[i] + child[j] > x; j--);
-		if (i >= j) break;
-		ans++;
-		j--;
-	}
-	printf("%d", n - ans);
+	
 }
 
 int main(){
