@@ -123,6 +123,7 @@ vector<Node>tree;
 int powers_2[19];
 int director = 0;
 
+// LCA of a and b
 int get_common(int a, int b) {	// assuming a and b are of the same depth
 	int i = 0;
 	for (; i < tree[a].ancestor.size(); i++) {
@@ -141,6 +142,7 @@ int get_common(int a, int b) {	// assuming a and b are of the same depth
 	}
 }
 
+// get the k-th ancestor of node
 int get_ancestor(int node, int k) {
 	if (k > tree[node].depth) return -1;
 	if (k == 0) return node;
